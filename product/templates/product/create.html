@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% include "components/_navbar.html" %}
+<div class="container d-block bg-dark bg-opacity-25 p-2" style="height:400px;">
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+        {% endfor %}
+        <input class="btn btn-primary w-100 mt-2"  type="submit" value="Kaydet">
+    </form>
+    
+</div>
+{% include "components/_footer.html" %}
+{% endblock content %}

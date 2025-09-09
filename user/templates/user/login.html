@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    {% include "components/_messages.html" %}
+    {% include "components/_navbar.html" %}
+
+        <div class="container bg-dark bg-opacity-25 d-flex justify-content-center align-items-center w-100 h-75">
+            <div class="bg-light w-50 p-4" style="height:500px;">
+                <h3 class="d-flex justify-content-center align-items-center m-4">Vatan Bilgisayar'a Hoşgeldiniz</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Giriş Yap" class="btn btn-primary w-100 rounded-4 m-2">
+                </form>
+                <a class="btn btn-info w-100 rounded-4 m-2" href="{% url "register_page" %}">Üye Ol</a>
+            </div>
+        </div>
+    
+    {% include "components/_footer.html" %}
+
+{% endblock content %}

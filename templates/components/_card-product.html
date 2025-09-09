@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem;">
+        <img src="{{ urun.urun_image }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ urun.urun_name }}</h5>
+            <p class="card-text">{{ urun.urun_description }}</p>
+            <p>{{ urun.urun_price }} TL </p>
+            <p class="card-footer" >{{ urun.urun_category }}</p>
+            <a href="{% url "urun_detay_page" urun.urun_category_id urun.urun_slug %}" class="btn btn-primary">Ürünü İncele</a>
+            <button class="btn btn-info" onclick="urunEkle('{{ urun.urun_name }}', '{{ urun.urun_price }}')">Sepete Ekle</button>
+    </div>
+</div>

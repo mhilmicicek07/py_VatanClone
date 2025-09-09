@@ -1,0 +1,77 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-primary text-light container">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url "index_page" %}"><img src={% static "img/vatan.png" %} alt="vatan" height="70" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-light" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                        Kategoriler
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% for kategori in kategoriler %}
+                            <li>
+                                <a class="dropdown-item" href="{% url "detay_page" kategori.id %}">{{ kategori.kategori_name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex flex-grow-1 align-items-center mx-0 mx-md-4" role="search">
+                <input id="input" class="search form-control me-2 opacity-25 text-light placeholder-xs text-black" type="search"
+                    placeholder="Search" aria-label="Search" />
+            </form>
+            <div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                        Profil
+                        </a>
+                        <ul class="dropdown-menu" >
+                            {% if request.user.is_authenticated %}
+                                <li>
+                                    <a class="btn btn-primary" href="{% url 'change_password_page' %}">Şifre Değiştir</a>
+                                </li>
+                                <li>
+                                    <a class="btn btn-success" href="{% url 'create_page' %}">Ürün Ekle</a>
+                                </li>
+                                <li>
+                                    <a class="btn btn-danger" href="{% url 'logout_page' %}">Çıkış Yap</a>
+                                </li>
+                                {% else %}
+                                <a href="{% url "login_page" %}">
+                                    <button class="btn btn-primary">Üyelik
+                                        <i class="fa-regular fa-user text-bg-light rounded-circle p-1"></i>
+                                    </button>
+                                    {% endif %}
+                                </ul>
+                            </a>
+                    </li>
+
+                    <li class="nav-item mx-lg-4 dropdown my-auto">
+                        <a type="button" class="position-relative cart-number text-decoration-none text-light" href="#"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sepetim
+                            <i class="fa-solid fa-cart-shopping text-bg-light rounded-circle p-1"></i>
+                        </a>
+
+                        <ul class="dropdown-menu" id="sepetListesi">
+
+                        </ul>
+
+                        <div id="toplamTutar"></div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
