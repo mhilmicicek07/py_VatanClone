@@ -10,7 +10,7 @@
                 {{ urun.urun_name }}
             </h6>
             <p class="card-text fw-bold mb-2">{{ urun.urun_price }} ₺</p>
-            <a href="{% url 'detay_page' urun.urun_category.id %}" class="btn btn-sm btn-primary">
+            <a href="{% url 'urun_detay' urun.urun_category.id urun.urun_slug %}" class="btn btn-sm btn-primary">
                 Detay
             </a>
         </div>

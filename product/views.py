@@ -28,10 +28,10 @@ def detay_view(request, kategori_id):
         "kategoriler": kategoriler,
         })
 
-def urun_detay_view(request, urun_slug):
+def urun_detay_view(request, urun_slug, urun_category_id):
     kategoriler = Kategori.objects.all()
     urun = get_object_or_404(
-        Urun.objects.select_related("urun_category", "user"), urun_slug=urun_slug
+        Urun.objects.select_related("urun_category", "user"), urun_slug=urun_slug, urun_category_id=urun_category_id
     )
     return render(request, "product/urun-detay.html", {
         "urun": urun,
