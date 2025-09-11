@@ -5,6 +5,5 @@ from .models import *
 class UrunAdmin(admin.ModelAdmin):
     list_display = ('id','urun_name','urun_description','urun_price')
 
-
 admin.site.register(Kategori)
 admin.site.register(Urun, UrunAdmin)

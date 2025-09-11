@@ -2,17 +2,13 @@
 
 {% block content %}
     {% include "components/_navbar.html" %}
-
-    <div class="container">
-        <form method="POST" enctype="">
-            {% csrf_token %}
-            <p>{{ urun.urun_name }} - Bu ürünü silmek istiyor musunuz? </p>
-
-            <input type="submit" class="btn btn-danger" value="Sil">
-            <a class="btn btn-secondary" href="{% url "index_page" %}">Anasayfaya Dön</a>
-
-        </form>
-    </div>
-
+        <div class="container">
+            <form method="POST" enctype="">
+                {% csrf_token %}
+                <p>{{ urun.urun_name }} - Bu ürünü silmek istiyor musunuz? </p>
+                <input type="submit" class="btn btn-danger" value="Sil">
+                <a class="btn btn-secondary" href="{% url "index_page" %}">Anasayfaya Dön</a>
+            </form>
+        </div>
     {% include "components/_footer.html" %}
 {% endblock content %}
