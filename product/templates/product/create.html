@@ -1,4 +1,16 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Ürün Ekle</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Kaydet</button>
+    </form>
+</div>
+{% endblock %}
+{% comment %} {% extends "layout.html" %}
 
 {% block content %}
 {% include "components/_navbar.html" %}
@@ -15,4 +27,4 @@
     
 </div>
 {% include "components/_footer.html" %}
-{% endblock content %}
+{% endblock content %} {% endcomment %}
