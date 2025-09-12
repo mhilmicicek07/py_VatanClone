@@ -3,8 +3,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
+
 from .models import Urun, Kategori
 from .forms import UrunEkle
+
 
 def index_view(request):
     kategoriler = Kategori.objects.all()
@@ -12,10 +14,8 @@ def index_view(request):
     paginator = Paginator(urunler, 12)
     page = request.GET.get("page")
     urunler = paginator.get_page(page)
-    return render(request, "product/index.html", {
-        "urunler": urunler,
-        "kategoriler": kategoriler,
-        })
+    return render(request, "product/index.html", {"urunler": urunler, "kategoriler": kategoriler})
+
 
 def detay_view(request, kategori_id):
     kategoriler = Kategori.objects.all()
@@ -23,20 +23,16 @@ def detay_view(request, kategori_id):
     paginator = Paginator(qs.order_by("-id"), 12)
     page = request.GET.get("page")
     urunler = paginator.get_page(page)
-    return render(request, "product/detay.html", {
-        "urunler": urunler,
-        "kategoriler": kategoriler,
-        })
+    return render(request, "product/detay.html", {"urunler": urunler, "kategoriler": kategoriler})
 
-def urun_detay_view(request, urun_slug, urun_category_id):
+
+def urun_detay_view(request, kategori_id, urun_slug):
     kategoriler = Kategori.objects.all()
     urun = get_object_or_404(
-        Urun.objects.select_related("urun_category", "user"), urun_slug=urun_slug, urun_category_id=urun_category_id
+        Urun.objects.select_related("urun_category", "user"), urun_slug=urun_slug
     )
-    return render(request, "product/urun-detay.html", {
-        "urun": urun,
-        "kategoriler": kategoriler,
-        })
+    return render(request, "product/urun-detay.html", {"urun": urun, "kategoriler": kategoriler})
+
 
 @login_required
 def create_view(request):
@@ -51,10 +47,8 @@ def create_view(request):
             return redirect("index_page")
     else:
         form = UrunEkle()
-    return render(request, "product/create.html", {
-        "form": form,
-        "kategoriler": kategoriler,
-        })
+    return render(request, "product/create.html", {"form": form, "kategoriler": kategoriler})
+
 
 @login_required
 def edit_view(request, urun_slug):
@@ -69,10 +63,8 @@ def edit_view(request, urun_slug):
             return redirect("index_page")
     else:
         form = UrunEkle(instance=urun)
-    return render(request, "product/edit.html", {
-        "urun": urun,
-        "form": form,
-        })
+    return render(request, "product/edit.html", {"urun": urun, "form": form})
+
 
 @login_required
 def delete_view(request, urun_slug):
@@ -83,6 +75,4 @@ def delete_view(request, urun_slug):
         urun.delete()
         messages.warning(request, "Ürün Silindi!")
         return redirect("index_page")
-    return render(request, "product/delete.html", {
-        "urun": urun,
-        })
+    return render(request, "product/delete.html", {"urun": urun})

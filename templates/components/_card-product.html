@@ -1,18 +1,20 @@
-<div class="col-md-3 col-sm-6 mb-4">
-    <div class="card h-100 shadow-sm">
-        {% if urun.urun_image %}
-            <img src="{{ urun.urun_image.url }}" class="card-img-top product-img" alt="{{ urun.urun_name }}">
-        {% else %}
-            <img src="https://via.placeholder.com/300x200?text=No+Image" class="card-img-top product-img" alt="No Image">
-        {% endif %}
-        <div class="card-body text-center">
-            <h6 class="card-title text-truncate" title="{{ urun.urun_name }}">
-                {{ urun.urun_name }}
-            </h6>
-            <p class="card-text fw-bold mb-2">{{ urun.urun_price }} ₺</p>
-            <a href="{% url 'urun_detay' urun.urun_category.id urun.urun_slug %}" class="btn btn-sm btn-primary">
-                Detay
-            </a>
-        </div>
+{% load static %}
+<div class="card h-100">
+    {% if urun.urun_image %}
+        <img src="{{ urun.urun_image.url }}" class="card-img-top" alt="{{ urun.urun_name }}">
+    {% else %}
+        <img src="{% static 'img/no-image.png' %}" class="card-img-top" alt="Resim Yok">
+    {% endif %}
+
+    <div class="card-body">
+        <h5 class="card-title">{{ urun.urun_name }}</h5>
+        <p class="card-text">{{ urun.urun_aciklama|truncatechars:100 }}</p>
+    </div>
+
+    <div class="card-footer d-flex justify-content-between align-items-center">
+        <span class="text-primary fw-bold">{{ urun.urun_fiyat }} ₺</span>
+        <a href="{% url 'urun_detay_page' urun.urun_category.id urun.urun_slug %}" class="btn btn-sm btn-primary">
+            Detay
+        </a>
     </div>
 </div>

@@ -1,11 +1,48 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 
 {% block content %}
-    {% include "components/_navbar.html" %}
-        <div class="container d-flex gap-3 p-3">
-            {% for urun in urunler %}
-                {% include "components/_card-product.html" %}
-            {% endfor %}
+{% include "components/_navbar.html" %}
+<div class="container mt-4">
+    <h2 class="mb-4">Kategoriye Ait Ürünler</h2>
+    <div class="row">
+        {% for urun in urunler %}
+        <div class="col-md-3 mb-4">
+            {% include "components/_card-product.html" with urun=urun %}
         </div>
-    {% include "components/_footer.html" %}
+        {% empty %}
+        <p>Bu kategoriye ait ürün bulunmamaktadır.</p>
+        {% endfor %}
+    </div>
+
+    <div class="d-flex justify-content-center">
+        {% if urunler.has_other_pages %}
+        <ul class="pagination">
+            {% if urunler.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ urunler.previous_page_number }}">Önceki</a>
+            </li>
+            {% endif %}
+
+            {% for num in urunler.paginator.page_range %}
+            {% if urunler.number == num %}
+            <li class="page-item active">
+                <a class="page-link">{{ num }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            {% if urunler.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ urunler.next_page_number }}">Sonraki</a>
+            </li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% include "components/_footer.html" %}
 {% endblock content %}
