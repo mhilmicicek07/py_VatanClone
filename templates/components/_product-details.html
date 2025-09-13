@@ -1,17 +1,26 @@
-<div class="card" style="width: 18rem;">
-    
-    <img src="{{ urun.urun_image }}" class="card-img-top" alt="...">
+{% load static %}
+<div class="card shadow-sm">
+    {% if urun.urun_image %}
+        <img src="{{ urun.urun_image.url }}" class="card-img-top product-img" alt="{{ urun.urun_name }}">
+    {% else %}
+        <img src="{% static 'img/no-image.png' %}" class="card-img-top product-img" alt="Resim Yok">
+    {% endif %}
+
     <div class="card-body">
-            <h5 class="card-title">{{ urun.urun_name }}</h5>
-            <p class="card-text">{{ urun.urun_description }}</p>
-            <p> {{ urun.urun_price }} $ - {{ urun.urun_category }} </p>
-            {% if request.user.is_authenticated %}
-                <a href="{% url "delete_page" urun.urun_slug %}" class="btn btn-danger w-100 mt-2">Ürünü Sil</a>
-                <a href="{% url "edit_page" urun.urun_slug %}" class="btn btn-warning mt-2 w-100">Ürünü Düzenle</a>
-                <button class="btn btn-info w-100 mt-2" onclick="urunEkle('{{ urun.urun_name }}', '{{ urun.urun_price }}')">Sepete Ekle</button>
-            {% else %}
-                <a class="btn btn-primary w-100 mt-2" href="{% url "register_page" %}">Satın Almak İçin Üye Olun!</a>
-            {% endif %}
-        
+        <h5 class="card-title">{{ urun.urun_name }}</h5>
+        <p class="card-text">{{ urun.urun_description }}</p>
+        <p><strong>{{ urun.urun_price }} ₺</strong> - {{ urun.urun_category }}</p>
+
+        {% if request.user.is_authenticated %}
+            <a href="{% url "delete_page" urun.urun_slug %}" class="btn btn-danger w-100 mt-2">Ürünü Sil</a>
+            <a href="{% url "edit_page" urun.urun_slug %}" class="btn btn-warning w-100 mt-2">Ürünü Düzenle</a>
+            <button class="btn btn-info w-100 mt-2" onclick="urunEkle('{{ urun.urun_name }}', '{{ urun.urun_price }}')">
+                Sepete Ekle
+            </button>
+        {% else %}
+            <a class="btn btn-primary w-100 mt-2" href="{% url "register_page" %}">
+                Satın Almak İçin Üye Olun!
+            </a>
+        {% endif %}
     </div>
 </div>

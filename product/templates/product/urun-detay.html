@@ -3,15 +3,11 @@
 {% block content %}
     {% include "components/_navbar.html" %}
     <div class="container mt-4">
-        <h2>{{ urun.urun_name }}</h2>
-        <p>{{ urun.urun_description }}</p>
-        <p><strong>Fiyat:</strong> {{ urun.urun_price }} ₺</p>
-        {% include "components/_product-details.html" %}
-            {% if urun.urun_image %}
-                <img src="{{ urun.urun_image }}" alt="{{ urun.urun_name }}" style="max-width:300px;">
-            {% else %}
-                <p>Görsel mevcut değil</p>
-            {% endif %}
+        <div class="row">
+            <div class="col-lg-6">
+                {% include "components/_product-details.html" %}
+            </div>
         </div>
+    </div>
     {% include "components/_footer.html" %}
 {% endblock content %}
