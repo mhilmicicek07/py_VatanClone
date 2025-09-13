@@ -4,18 +4,22 @@
     {% include "components/_navbar.html" %}
 
     <div class="container mt-4">
-        <h2>Ürünü Düzenle</h2>
-        <form method="POST" enctype="multipart/form-data">
+        <h2 class="mb-4">Ürünü Düzenle</h2>
+        <form method="POST" enctype="multipart/form-data" class="row g-3">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form }}
             <button type="submit" class="btn btn-warning w-100 mt-2">Güncelle</button>
         </form>
+
         {% if urun.urun_image %}
-            <div class="mt-3">
-                <p>Mevcut Görsel:</p>
-                <img src="{{ urun.urun_image.url }}" alt="{{ urun.urun_name }}" style="max-width:200px;">
+            <div class="mt-4">
+                <h5>Mevcut Görsel:</h5>
+                <div class="card" style="width: 200px;">
+                    <img src="{{ urun.urun_image.url }}" class="card-img-top" alt="{{ urun.urun_name }}">
+                </div>
             </div>
         {% endif %}
     </div>
+
     {% include "components/_footer.html" %}
 {% endblock content %}

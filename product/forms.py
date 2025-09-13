@@ -6,7 +6,11 @@ class UrunEkle(forms.ModelForm):
         model = Urun
         fields = ["urun_name", "urun_description", "urun_price", "urun_image", "urun_category"]
         widgets = {
-            "urun_description": forms.Textarea(attrs={"rows": 3}),
+            "urun_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Ürün adı"}),
+            "urun_description": forms.Textarea(attrs={"class": "form-control", "rows": 3, "placeholder": "Ürün açıklaması"}),
+            "urun_price": forms.NumberInput(attrs={"class": "form-control", "placeholder": "Fiyat"}),
+            "urun_image": forms.ClearableFileInput(attrs={"class": "form-control"}),
+            "urun_category": forms.Select(attrs={"class": "form-select"}),
         }
 
     def clean_urun_price(self):
