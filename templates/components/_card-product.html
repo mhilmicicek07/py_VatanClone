@@ -8,11 +8,11 @@
 
     <div class="card-body">
         <h5 class="card-title">{{ urun.urun_name }}</h5>
-        <p class="card-text">{{ urun.urun_aciklama|truncatechars:100 }}</p>
+        <p class="card-text">{{ urun.urun_description|truncatechars:100 }}</p>
     </div>
 
     <div class="card-footer d-flex justify-content-between align-items-center">
-        <span class="text-primary fw-bold">{{ urun.urun_fiyat }} ₺</span>
+        <span class="text-primary fw-bold">{{ urun.urun_price }} ₺</span>
         <a href="{% url 'urun_detay_page' urun.urun_category.id urun.urun_slug %}" class="btn btn-sm btn-primary">
             Detay
         </a>
