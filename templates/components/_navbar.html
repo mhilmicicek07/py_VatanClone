@@ -1,7 +1,9 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg bg-primary text-light container">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url "index_page" %}"><img src={% static "img/vatan.png" %} alt="vatan" height="70" /></a>
+        <a class="navbar-brand" href="{% url "index_page" %}">
+            <img src={% static "img/vatan.png" %} alt="vatan" height="70" />
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,8 +26,8 @@
                 </li>
             </ul>
             <form class="d-flex flex-grow-1 align-items-center mx-0 mx-md-4" role="search">
-                <input id="input" class="search form-control me-2 opacity-25 text-light placeholder-xs text-black" type="search"
-                    placeholder="Search" aria-label="Search" />
+                <input id="input" class="search form-control me-2 opacity-25 text-light placeholder-xs text-black"
+                    type="search" placeholder="Search" aria-label="Search" />
             </form>
             <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -38,40 +40,78 @@
                         <ul class="dropdown-menu" >
                             {% if request.user.is_authenticated %}
                                 <li>
-                                    <a class="btn btn-primary" href="{% url 'change_password_page' %}">Şifre Değiştir</a>
+                                    <a class="btn btn-primary w-100" href="{% url 'change_password_page' %}">Şifre Değiştir</a>
                                 </li>
                                 <li>
-                                    <a class="btn btn-success" href="{% url 'create_page' %}">Ürün Ekle</a>
+                                    <a class="btn btn-success w-100" href="{% url 'create_page' %}">Ürün Ekle</a>
                                 </li>
                                 <li>
-                                    <a class="btn btn-danger" href="{% url 'logout_page' %}">Çıkış Yap</a>
+                                    <a class="btn btn-danger w-100" href="{% url 'logout_page' %}">Çıkış Yap</a>
                                 </li>
                                 {% else %}
                                 <a href="{% url "login_page" %}">
-                                    <button class="btn btn-primary">Üyelik
+                                    <button class="btn btn-primary w-100">Üyelik
                                         <i class="fa-regular fa-user text-bg-light rounded-circle p-1"></i>
                                     </button>
-                                    {% endif %}
-                                </ul>
-                            </a>
+                                </a>
+                            {% endif %}
+                        </ul>
                     </li>
 
+                    <!-- SEPET -->
                     <li class="nav-item mx-lg-4 dropdown my-auto">
-                        <a type="button" class="position-relative cart-number text-decoration-none text-light" href="#"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a type="button" class="position-relative cart-number text-decoration-none text-light"
+                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Sepetim
                             <i class="fa-solid fa-cart-shopping text-bg-light rounded-circle p-1"></i>
                         </a>
 
-                        <ul class="dropdown-menu" id="sepetListesi">
-
+                        <!-- Sepet dropdown -->
+                        <ul class="dropdown-menu dropdown-menu-end p-2" id="sepetListesi" style="min-width: 250px; max-width: 300px; white-space: normal; word-wrap: break-word;">
+                            <!-- JS buraya ürünleri ekleyecek -->
                         </ul>
 
-                        <div id="toplamTutar"></div>
+                        <div id="toplamTutar" class="text-center fw-bold mt-2"></div>
                     </li>
-
                 </ul>
             </div>
         </div>
     </div>
 </nav>
+{% comment %} {% load static %}
+<nav class="navbar navbar-expand-lg bg-primary text-light container">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index_page' %}"><img src={% static "img/vatan.png" %} alt="vatan" height="70" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <!-- önceki menü ve kategori kısımları aynı -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- (kategori + profil) ... aynı -->
+            </ul>
+
+            <form class="d-flex flex-grow-1 align-items-center mx-0 mx-md-4" role="search">
+                <input id="input" class="search form-control me-2 opacity-25 text-light placeholder-xs text-black" type="search"
+                    placeholder="Search" aria-label="Search" />
+            </form>
+
+            <ul class="navbar-nav">
+                <li class="nav-item mx-lg-4 dropdown my-auto">
+                    <a class="nav-link text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sepetim
+                        <i class="fa-solid fa-cart-shopping text-bg-light rounded-circle p-1"></i>
+                    </a>
+
+                    <ul class="dropdown-menu" id="sepetListesi">
+                        <!-- script.js JS tarafından doldurulacaktır -->
+                    </ul>
+
+                    <!-- toplam tutar dropdown altında gösterilecek şekilde bırakıyoruz -->
+                    <div id="toplamTutar" class="px-3 py-2 fw-bold"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav> {% endcomment %}
