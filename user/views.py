@@ -32,7 +32,7 @@ def login_view(request):
                     'form': form,
                 })
         else:
-            messages.error(request,'Bilgilerinizi Gözden Geçirin!')
+            messages.warning(request,'Bilgilerinizi Gözden Geçirin!')
             return redirect(request, 'user/login.html', {
                 'form': form,
             })
@@ -89,7 +89,7 @@ def change_password_view(request):
             messages.success(request, 'Şifreniz Başarıyla Değiştirildi!')
             return redirect('index_page')
         else:
-            messages.error(request, 'Lütfen doğru bilgileri girin.')
+            messages.warning(request, 'Lütfen doğru bilgileri girin.')
             return render(request, 'user/change-password.html', {
                 'form': form,
             })
@@ -103,6 +103,6 @@ def change_password_view(request):
 #* LOGOUT
 def logout_view(request):
     logout(request)
-    messages.warning(request,'Çıkış yapıldı, Yine Bekleriz!')
+    messages.error(request,'Çıkış yapıldı, Yine Bekleriz!')
     return redirect('index_page')
 #* LOGOUT
