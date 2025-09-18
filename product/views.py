@@ -59,7 +59,7 @@ def edit_view(request, urun_slug):
         form = UrunEkle(request.POST, request.FILES, instance=urun)
         if form.is_valid():
             form.save()
-            messages.info(request, "Ürün Güncellendi!")
+            messages.warning(request, "Ürün Güncellendi!")
             return redirect("index_page")
     else:
         form = UrunEkle(instance=urun)
@@ -73,6 +73,6 @@ def delete_view(request, urun_slug):
         raise PermissionDenied
     if request.method == "POST":
         urun.delete()
-        messages.warning(request, "Ürün Silindi!")
+        messages.error(request, "Ürün Silindi!")
         return redirect("index_page")
     return render(request, "product/delete.html", {"urun": urun})
