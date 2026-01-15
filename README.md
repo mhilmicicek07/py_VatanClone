@@ -1,95 +1,99 @@
-# 🖥️ py_VatanClone Projesi  
+# 🖥️ py_VatanClone
 
-Bu proje, **Vatan Bilgisayar** benzeri bir e-ticaret sitesinin temel işlevlerini örnekleyen bir **Django tabanlı web uygulamasıdır**.  
-Kullanıcılar ürünleri görüntüleyebilir, kategori bazlı filtreleme yapabilir, giriş yaparak yeni ürün ekleyebilir veya mevcut ürünleri düzenleyip silebilir.  
-Amaç, Django framework’üyle backend geliştirme becerilerini göstermek ve temel CRUD mantığını uygulamaktır.
+[TR - Türkçe](#-türkçe) | [EN - English](#-english) | [DE - Deutsch](#-deutsch)
 
 ---
 
-## 🚀 Özellikler  
+## 🇹🇷 Türkçe
 
-- 🛒 Ürün listeleme, kategoriye göre filtreleme  
-- ➕ Yeni ürün ekleme (giriş yapmış kullanıcılar için)  
-- ✏️ Ürün düzenleme ve 🗑️ silme  
-- 👤 Kullanıcı girişi ve kayıt olma  
-- 🔒 Sadece giriş yapan kullanıcıların ürün ekleyebilmesi ve yönetebilmesi  
-- 📸 Ürün görseli yükleme (media/uploads dizininde saklanır)  
-- 📄 Basit, okunabilir ve genişletilebilir Django yapısı  
+### Proje Hakkında
+Bu proje, **Vatan Bilgisayar** benzeri bir e-ticaret sitesinin temel işlevlerini örnekleyen bir **Django tabanlı web uygulamasıdır**. Kullanıcılar ürünleri görüntüleyebilir, kategori bazlı filtreleme yapabilir, giriş yaparak yeni ürün ekleyebilir veya mevcut ürünleri düzenleyip silebilir.
 
----
+### 🚀 Özellikler
+- 🛒 **Ürün Yönetimi:** Listeleme, kategoriye göre filtreleme.
+- ➕ **CRUD İşlemleri:** Giriş yapmış kullanıcılar için ürün ekleme, düzenleme ve silme.
+- 👤 **Kullanıcı Sistemi:** Kayıt olma, giriş yapma ve oturum yönetimi.
+- 📸 **Görsel Desteği:** Ürün görselleri için `Pillow` entegrasyonu.
+- 🔒 **Güvenlik:** Sadece yetkili kullanıcıların ürün yönetebilmesi.
 
-## 🧩 Kullanılan Teknolojiler  
+### 🧩 Kullanılan Teknolojiler
+- **Backend:** Python 3.10+, Django 4.2
+- **Veritabanı:** SQLite3
+- **Frontend:** HTML5, CSS3, Bootstrap
+- **Diğer:** Django Template Engine, Pillow
 
-| Teknoloji | Rolü |
-|------------|-----------|
-| **Python 3.10+** | Backend geliştirme dili |
-| **Django 4.2** | Web framework |
-| **SQLite3** | Veritabanı |
-| **HTML5, CSS3, Bootstrap** | Frontend tasarımı |
-| **Django Template Engine** | Dinamik HTML üretimi |
-| **Pillow** | Görsel yükleme işlemleri |
-
----
-
-## 📂 Proje Dosya Yapısı  
-
-📁 **py_VatanClone**  
-├── 📄 manage.py  
-├── 📁 py_VatanClone (ana proje ayarları)  
-│   ├── settings.py  
-│   ├── urls.py  
-│   ├── wsgi.py  
-│   └── asgi.py  
-├── 📁 product (ürün uygulaması)  
-│   ├── models.py  
-│   ├── views.py  
-│   ├── forms.py  
-│   ├── urls.py  
-│   └── templates/product/  
-├── 📁 user (kullanıcı uygulaması)  
-│   ├── views.py  
-│   ├── forms.py  
-│   ├── urls.py  
-│   └── templates/user/  
-├── 📁 static (CSS, JS, img)  
-└── 📁 media/uploads (ürün görselleri)  
+### ⚙️ Kurulum ve Çalıştırma
+1. Projeyi klonlayın: `git clone https://github.com/mhilmicicek07/py_VatanClone.git`
+2. Sanal ortam oluşturun: `python -m venv venv`
+3. Aktif edin: `venv\Scripts\activate` (Windows) veya `source venv/bin/activate` (Linux/Mac)
+4. Bağımlılıkları yükleyin: `pip install -r requirements.txt`
+5. Veritabanını hazırlayın: `python manage.py migrate`
+6. Sunucuyu başlatın: `python manage.py runserver`
 
 ---
 
-## ⚙️ Kurulum ve Çalıştırma  
+## 🇺🇸 English
 
-Projeyi yerel ortamınızda çalıştırmak için:  
+### About the Project
+This project is a **Django-based web application** that replicates the core functionalities of an e-commerce site like **Vatan Computer**. It demonstrates backend development skills with Django, implementing full CRUD logic and user authentication.
 
-```bash
-git clone https://github.com/mhilmicicek07/py_VatanClone.git
-cd py_VatanClone/py_VatanClone
-python -m venv venv
-venv\Scripts\activate   # (Windows için)  
-# veya source venv/bin/activate (Linux/macOS için)
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-Ardından tarayıcıda açın:
-👉 http://localhost:8000
+### 🚀 Features
+- 🛒 **Product Management:** Listing and filtering by category.
+- ➕ **CRUD Logic:** Authenticated users can add, update, and delete products.
+- 👤 **User Authentication:** Registration, login, and session management.
+- 📸 **Media Handling:** Image uploads via `Pillow`.
+- 🔒 **Authorization:** Only owners can manage their own products.
 
-🧠 Teknik Açıklama
-Uygulama iki temel Django app’ten oluşur:
+### 🧩 Technologies Used
+- **Backend:** Python 3.10+, Django 4.2
+- **Database:** SQLite3
+- **Frontend:** HTML5, CSS3, Bootstrap
+- **Tools:** Django Template Engine, Pillow
 
-product: Ürün ve kategori yönetimi
+### ⚙️ Installation
+1. Clone the repo: `git clone https://github.com/mhilmicicek07/py_VatanClone.git`
+2. Create venv: `python -m venv venv`
+3. Activate venv: `venv\Scripts\activate` (Win) or `source venv/bin/activate` (Unix)
+4. Install requirements: `pip install -r requirements.txt`
+5. Migrate: `python manage.py migrate`
+6. Run: `python manage.py runserver`
 
-user: Kullanıcı kimlik doğrulama sistemi
+---
 
-Her ürün bir kullanıcıya bağlıdır (ForeignKey(User)), böylece kullanıcı sadece kendi ürünlerini düzenleyip silebilir.
-Slug sistemi ürün başlığına göre otomatik üretilir ve URL dostu bağlantılar sağlar.
-Formlar Bootstrap sınıflarıyla entegre edilmiştir.
+## 🇩🇪 Deutsch
 
-👨‍💻 Geliştirici
-Mehmet Hilmi Çiçek
-💼 Full Stack Web Developer
-📍 Geislingen an der Steige, Almanya
+### Über das Projekt
+Dieses Projekt ist eine auf **Django basierende Webanwendung**, die die Kernfunktionen einer E-Commerce-Website wie **Vatan Computer** nachbildet. Es zeigt Backend-Entwicklungsfähigkeiten mit dem Django-Framework und die Implementierung der CRUD-Logik.
 
-💬 “Basit ama tutarlı kod, karmaşık olandan her zaman üstündür.”
+### 🚀 Funktionen
+- 🛒 **Produktverwaltung:** Auflistung und Filterung nach Kategorien.
+- ➕ **CRUD-Operationen:** Angemeldete Benutzer können Produkte hinzufügen, bearbeiten und löschen.
+- 👤 **Benutzersystem:** Registrierung, Login und Sitzungsverwaltung.
+- 📸 **Medienunterstützung:** Bilduploads mit `Pillow`.
+- 🔒 **Sicherheit:** Nur autorisierte Benutzer können Produkte verwalten.
 
-🪪 Lisans
-Bu proje açık kaynaklıdır.
-İsteyen herkes kodu inceleyebilir, geliştirebilir veya kişisel projelerinde referans olarak kullanabilir.
+### 🧩 Verwendete Technologien
+- **Backend:** Python 3.10+, Django 4.2
+- **Datenbank:** SQLite3
+- **Frontend:** HTML5, CSS3, Bootstrap
+- **Sonstiges:** Django Template Engine, Pillow
+
+### ⚙️ Installation
+1. Repo klonen: `git clone https://github.com/mhilmicicek07/py_VatanClone.git`
+2. Venv erstellen: `python -m venv venv`
+3. Venv aktivieren: `venv\Scripts\activate`
+4. Abhängigkeiten installieren: `pip install -r requirements.txt`
+5. Datenbank migrieren: `python manage.py migrate`
+6. Server starten: `python manage.py runserver`
+
+---
+
+### 👨‍💻 Geliştirici / Developer / Entwickler
+**Mehmet Hilmi Çiçek**  
+💼 Full Stack Web Developer  
+📍 Geislingen an der Steige, Deutschland
+
+---
+
+### 🪪 Lisans / License
+Bu proje açık kaynaklıdır. / This project is open source. / Dieses Projekt ist Open Source.
