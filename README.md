@@ -26,9 +26,15 @@ Bu proje, **Vatan Bilgisayar** benzeri bir e-ticaret sitesinin temel işlevlerin
 1. Projeyi klonlayın: `git clone https://github.com/mhilmicicek07/py_VatanClone.git`
 2. Sanal ortam oluşturun: `python -m venv venv`
 3. Aktif edin: `venv\Scripts\activate` (Windows) veya `source venv/bin/activate` (Linux/Mac)
-4. Bağımlılıkları yükleyin: `pip install -r requirements.txt`
+4. Bağımlılıkları yükleyin (`requirements.txt`): `pip install -r requirements.txt`
 5. Veritabanını hazırlayın: `python manage.py migrate`
 6. Sunucuyu başlatın: `python manage.py runserver`
+7. Testleri çalıştırın: `python manage.py test`
+
+### 👥 Hazır Test Kullanıcıları
+- admin / admin@admin.com / 1234
+- gokhanbyk / gokhan@gokhan.com / sifre123
+- kullanici / kullanici@kullanici.com / sifre1234
 
 ---
 
@@ -54,9 +60,15 @@ This project is a **Django-based web application** that replicates the core func
 1. Clone the repo: `git clone https://github.com/mhilmicicek07/py_VatanClone.git`
 2. Create venv: `python -m venv venv`
 3. Activate venv: `venv\Scripts\activate` (Win) or `source venv/bin/activate` (Unix)
-4. Install requirements: `pip install -r requirements.txt`
+4. Install requirements (`requirements.txt`): `pip install -r requirements.txt`
 5. Migrate: `python manage.py migrate`
 6. Run: `python manage.py runserver`
+7. Run tests: `python manage.py test`
+
+### 👥 Sample Accounts
+- admin / admin@admin.com / 1234
+- gokhanbyk / gokhan@gokhan.com / sifre123
+- kullanici / kullanici@kullanici.com / sifre1234
 
 ---
 
@@ -82,9 +94,15 @@ Dieses Projekt ist eine auf **Django basierende Webanwendung**, die die Kernfunk
 1. Repo klonen: `git clone https://github.com/mhilmicicek07/py_VatanClone.git`
 2. Venv erstellen: `python -m venv venv`
 3. Venv aktivieren: `venv\Scripts\activate`
-4. Abhängigkeiten installieren: `pip install -r requirements.txt`
+4. Abhängigkeiten installieren (`requirements.txt`): `pip install -r requirements.txt`
 5. Datenbank migrieren: `python manage.py migrate`
 6. Server starten: `python manage.py runserver`
+7. Tests ausführen: `python manage.py test`
+
+### 👥 Beispielkonten
+- admin / admin@admin.com / 1234
+- gokhanbyk / gokhan@gokhan.com / sifre123
+- kullanici / kullanici@kullanici.com / sifre1234
 
 ---
 
