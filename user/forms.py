@@ -12,7 +12,7 @@ class UserLoginForm(forms.Form):
     def clean_email(self, *args, **kwargs):
         email = self.cleaned_data.get('email')
 
-        if not User.objects.filter(email = email).exists():
+        if not User.objects.filter(email__iexact=email).exists():
             self.add_error('email', 'Bu E-Mail Mevcut Değil!')
 
         return email
@@ -49,6 +49,12 @@ class Register(UserCreationForm):
         self.fields['password1'].widget = widgets.PasswordInput(attrs={'class':'form-control','placeholder':'Şifreniz'})
         self.fields['password2'].widget = widgets.PasswordInput(attrs={'class':'form-control','placeholder':'Şifreniz Tekrar'})
         # self.fields['phone'].widget = widgets.TextInput(attrs={'class':'form-control','placeholder':'Telefon Numaranız'})
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if email and User.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError('Bu E-Mail adresi ile daha önce kayıt olunmuş.')
+        return email
 #? REGİSTER
 
 #* CHANGE-PASSWORD
