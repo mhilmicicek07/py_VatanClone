@@ -17,7 +17,7 @@ Bu proje, **Vatan Bilgisayar** benzeri bir e-ticaret sitesinin temel işlevlerin
 - 🔒 **Güvenlik:** Sadece yetkili kullanıcıların ürün yönetebilmesi.
 
 ### 🧩 Kullanılan Teknolojiler
-- **Backend:** Python 3.10+, Django 4.2
+- **Backend:** Python 3.13+, Django 4.2
 - **Veritabanı:** SQLite3
 - **Frontend:** HTML5, CSS3, Bootstrap
 - **Diğer:** Django Template Engine, Pillow
@@ -29,7 +29,6 @@ Bu proje, **Vatan Bilgisayar** benzeri bir e-ticaret sitesinin temel işlevlerin
 4. Bağımlılıkları yükleyin (`requirements.txt`): `pip install -r requirements.txt`
 5. Veritabanını hazırlayın: `python manage.py migrate`
 6. Sunucuyu başlatın: `python manage.py runserver`
-7. Testleri çalıştırın: `python manage.py test`
 
 ### 👥 Hazır Test Kullanıcıları
 - admin / admin@admin.com / 1234
@@ -51,7 +50,7 @@ This project is a **Django-based web application** that replicates the core func
 - 🔒 **Authorization:** Only owners can manage their own products.
 
 ### 🧩 Technologies Used
-- **Backend:** Python 3.10+, Django 4.2
+- **Backend:** Python 3.13+, Django 4.2
 - **Database:** SQLite3
 - **Frontend:** HTML5, CSS3, Bootstrap
 - **Tools:** Django Template Engine, Pillow
@@ -63,7 +62,6 @@ This project is a **Django-based web application** that replicates the core func
 4. Install requirements (`requirements.txt`): `pip install -r requirements.txt`
 5. Migrate: `python manage.py migrate`
 6. Run: `python manage.py runserver`
-7. Run tests: `python manage.py test`
 
 ### 👥 Sample Accounts
 - admin / admin@admin.com / 1234
@@ -85,7 +83,7 @@ Dieses Projekt ist eine auf **Django basierende Webanwendung**, die die Kernfunk
 - 🔒 **Sicherheit:** Nur autorisierte Benutzer können Produkte verwalten.
 
 ### 🧩 Verwendete Technologien
-- **Backend:** Python 3.10+, Django 4.2
+- **Backend:** Python 3.13+, Django 4.2
 - **Datenbank:** SQLite3
 - **Frontend:** HTML5, CSS3, Bootstrap
 - **Sonstiges:** Django Template Engine, Pillow
@@ -97,7 +95,6 @@ Dieses Projekt ist eine auf **Django basierende Webanwendung**, die die Kernfunk
 4. Abhängigkeiten installieren (`requirements.txt`): `pip install -r requirements.txt`
 5. Datenbank migrieren: `python manage.py migrate`
 6. Server starten: `python manage.py runserver`
-7. Tests ausführen: `python manage.py test`
 
 ### 👥 Beispielkonten
 - admin / admin@admin.com / 1234
